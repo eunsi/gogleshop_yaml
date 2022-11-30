@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: asia.gcr.io/exemplary-datum-362307/store:1
+        image: asia.gcr.io/exemplary-datum-362307/store:4
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -24,16 +24,3 @@ spec:
             cpu: "250m"
           limits:
             cpu: "500m"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: gogleapp-test
-spec:
-  selector:
-    app: spring-boot-app
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-  type: LoadBalancer
